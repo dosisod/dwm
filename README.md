@@ -1,3 +1,14 @@
+# dwm
+
+This is my custom build of `dwm`.
+
+## Patches
+
+* [noborder](http://dwm.suckless.org/patches/noborder/)
+
+Below is a copy of the original README.
+
+```
 dwm - dynamic window manager
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
@@ -46,3 +57,4 @@ Configuration
 -------------
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+```
