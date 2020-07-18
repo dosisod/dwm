@@ -5,6 +5,7 @@ This is my custom build of `dwm`.
 ## Patches
 
 * [noborder](http://dwm.suckless.org/patches/noborder/)
+* [gaps](http://dwm.suckless.org/patches/gaps/)
 
 Below is a copy of the original README.
 
