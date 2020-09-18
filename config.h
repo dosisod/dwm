@@ -67,6 +67,7 @@ static const char *nextsongcmd[] = { DWM_SCRIPTS "/select_random_song.sh", NULL 
 static const char *pausesongcmd[] = { DWM_SCRIPTS "/pause-song.sh", NULL };
 static const char *volupcmd[] = { "amixer", "sset", "Master", "5%+", NULL };
 static const char *voldowncmd[] = { "amixer", "sset", "Master", "5%-", NULL };
+static const char *screenshotcmd[] = { "gnome-screenshot", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -109,6 +110,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_bracketleft, spawn,     {.v = voldowncmd } },
 	{ MODKEY|ShiftMask,             XK_bracketright, spawn,    {.v = volupcmd } },
 	{ MODKEY,                       XK_bracketright, spawn,    {.v = pausesongcmd } },
+	{ MODKEY,                       XK_Scroll_Lock, spawn,     {.v = screenshotcmd } }
 };
 
 /* button definitions */
