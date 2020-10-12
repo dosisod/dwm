@@ -55,19 +55,27 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* my dwm related script locations */
-#define DWM_SCRIPTS "/home/noot/git/dwm-stuff"
+#define DWM_SCRIPTS "/home/noot/git/dwm-stuff/"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *slockcmd[] = { "slock", NULL };
-static const char *selectsongcmd[] = { DWM_SCRIPTS "/select_song.sh", NULL };
-static const char *nextsongcmd[] = { DWM_SCRIPTS "/select_random_song.sh", NULL };
-static const char *pausesongcmd[] = { DWM_SCRIPTS "/pause-song.sh", NULL };
+static const char *selectsongcmd[] = { DWM_SCRIPTS "select_song.sh", NULL };
+static const char *nextsongcmd[] = { DWM_SCRIPTS "select_random_song.sh", NULL };
+static const char *pausesongcmd[] = { DWM_SCRIPTS "pause-song.sh", NULL };
 static const char *volupcmd[] = { "amixer", "sset", "Master", "5%+", NULL };
 static const char *voldowncmd[] = { "amixer", "sset", "Master", "5%-", NULL };
 static const char *screenshotcmd[] = { "gnome-screenshot", NULL };
+
+#define XF86AudioPlay 0x1008ff14
+#define XF86AudioStop 0x1008ff15
+#define XF86AudioPrev 0x1008ff16
+#define XF86AudioNext 0x1008ff17
+#define XF86AudioMute 0x1008ff12
+#define XF86AudioLowerVolume 0x1008ff11
+#define XF86AudioRaiseVolume 0x1008ff13
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -105,11 +113,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY,                       XK_q,      spawn,          {.v = slockcmd } },
-	{ MODKEY|ShiftMask,             XK_backslash, spawn,       {.v = selectsongcmd } },
-	{ MODKEY,                       XK_backslash, spawn,       {.v = nextsongcmd } },
-	{ MODKEY|ShiftMask,             XK_bracketleft, spawn,     {.v = voldowncmd } },
-	{ MODKEY|ShiftMask,             XK_bracketright, spawn,    {.v = volupcmd } },
-	{ MODKEY,                       XK_bracketright, spawn,    {.v = pausesongcmd } },
+	{ MODKEY,                       XK_backslash, spawn,       {.v = selectsongcmd } },
+	{ MODKEY,                       XF86AudioNext, spawn,      {.v = nextsongcmd } },
+	{ MODKEY,                       XF86AudioLowerVolume, spawn, {.v = voldowncmd } },
+	{ MODKEY,                       XF86AudioRaiseVolume, spawn, {.v = volupcmd } },
+	{ MODKEY,                       XF86AudioPlay, spawn,      {.v = pausesongcmd } },
 	{ MODKEY,                       XK_Scroll_Lock, spawn,     {.v = screenshotcmd } }
 };
 
