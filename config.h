@@ -65,6 +65,7 @@ static const char *slockcmd[] = { "slock", NULL };
 static const char *selectsongcmd[] = { DWM_SCRIPTS "select_song.sh", NULL };
 static const char *nextsongcmd[] = { DWM_SCRIPTS "select_random_song.sh", NULL };
 static const char *pausesongcmd[] = { DWM_SCRIPTS "pause-song.sh", NULL };
+static const char *stopmusiccmd[] = { "killall", "ffplay", NULL };
 static const char *volupcmd[] = { "amixer", "sset", "Master", "5%+", NULL };
 static const char *voldowncmd[] = { "amixer", "sset", "Master", "5%-", NULL };
 static const char *screenshotcmd[] = { "gnome-screenshot", NULL };
@@ -118,6 +119,7 @@ static Key keys[] = {
 	{ MODKEY,                       XF86AudioLowerVolume, spawn, {.v = voldowncmd } },
 	{ MODKEY,                       XF86AudioRaiseVolume, spawn, {.v = volupcmd } },
 	{ MODKEY,                       XF86AudioPlay, spawn,      {.v = pausesongcmd } },
+	{ MODKEY,                       XF86AudioStop, spawn,      {.v = stopmusiccmd } },
 	{ MODKEY,                       XK_Scroll_Lock, spawn,     {.v = screenshotcmd } }
 };
 
