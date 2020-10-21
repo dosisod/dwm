@@ -55,7 +55,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* my dwm related script locations */
-#define DWM_SCRIPTS "/home/noot/git/dwm-stuff/"
+#define DWM_SCRIPTS "/home/noot/git/dwm/scripts/"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
