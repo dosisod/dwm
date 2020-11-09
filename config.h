@@ -70,6 +70,7 @@ static const char *volupcmd[] = { "amixer", "sset", "Master", "5%+", NULL };
 static const char *voldowncmd[] = { "amixer", "sset", "Master", "5%-", NULL };
 static const char *screenshotcmd[] = { "gnome-screenshot", NULL };
 static const char *unicodecmd[] = { DWM_SCRIPTS "unicode.sh", NULL };
+static const char *timercmd[] = { DWM_SCRIPTS "timer.sh", NULL };
 
 #define XF86AudioPlay 0x1008ff14
 #define XF86AudioStop 0x1008ff15
@@ -122,7 +123,8 @@ static Key keys[] = {
 	{ MODKEY,                       XF86AudioPlay, spawn,      {.v = pausesongcmd } },
 	{ MODKEY,                       XF86AudioStop, spawn,      {.v = stopmusiccmd } },
 	{ MODKEY,                       XK_Scroll_Lock, spawn,     {.v = screenshotcmd } },
-	{ MODKEY,                       XK_u,      spawn,          {.v = unicodecmd } }
+	{ MODKEY,                       XK_u,      spawn,          {.v = unicodecmd } },
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = timercmd } }
 };
 
 /* button definitions */

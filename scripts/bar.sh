@@ -8,6 +8,10 @@ make_bar() {
 	song=$(cat "$current")
 	[ -z "$song" ] || bar="[ ${song%.*} ] $bar"
 
+	timer=""
+	[ -f /tmp/timer ] && timer=$(cat /tmp/timer)
+	[ -z "$timer" ] || bar="[ ${timer%.*} ] $bar"
+
 	echo $bar
 }
 
