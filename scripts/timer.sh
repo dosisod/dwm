@@ -16,5 +16,8 @@ for ((;;)); do
 	offset=$(( $offset - 1))
 	sleep 1
 
-	(( $offset < 0 )) && rm /tmp/timer && exit 1
+	(( $offset < 0 )) && break
 done
+
+rm /tmp/timer
+dmenu -p "Times up!"
