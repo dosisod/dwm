@@ -1,1 +1,1 @@
-$(/home/noot/git/dwm/scripts/song.sh /home/noot/git/dwm/scripts/random_song.sh) &
+$("${SCRIPT_DIR}/song.sh" "${SCRIPT_DIR}/random_song.sh") &

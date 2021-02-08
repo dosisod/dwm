@@ -1,1 +1,1 @@
-$(/home/noot/git/dwm/scripts/song.sh "$(cd "/home/noot/Music/music" && find *.mp3 | rev | cut -b 5- | rev | dmenu -i -l 25).mp3") &
+$("${SCRIPT_DIR}/song.sh" "$(cd "$MUSIC_DIR" && find *.mp3 | rev | cut -b 5- | rev | dmenu -i -l 25).mp3") &
