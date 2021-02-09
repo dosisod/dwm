@@ -1,22 +1,23 @@
-#!/bin/bash
+#!/bin/sh
 
-hours=$(dmenu -p "HOURS" <<< "0")
+hours=$(echo -n "0" | dmenu -p "HOURS")
 [ -z "$hours" ] && exit 1
 
-minutes=$(dmenu -p "MINUTES" <<< "0")
+minutes=$(echo -n "0" | dmenu -p "MINUTES")
 [ -z "$minutes" ] && exit 1
 
-seconds=$(dmenu -p "SECONDS" <<< "0")
+seconds=$(echo -n "0" | dmenu -p "SECONDS")
 [ -z "$seconds" ] && exit 1
 
-offset=$(( ($hours * 3600 ) + (minutes * 60) + (seconds) ))
+offset=$(echo "($hours * 3600) + ($minutes * 60) + $seconds" | bc)
 
-for ((;;)); do
+while true; do
 	echo "$(date -u --date="@$offset" +%T)" > /tmp/timer
-	offset=$(( $offset - 1))
+	offset=$(echo "$offset - 1" | bc)
+
 	sleep 1
 
-	(( $offset < 0 )) && break
+	[ "$(echo "$offset < 0" | bc)" = "1" ] && break
 done
 
 rm /tmp/timer

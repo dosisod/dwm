@@ -1,1 +1,3 @@
-echo $(date +%b\ %d\ %-l:%M)
+#!/bin/bash
+
+echo $(date +%b\ %-d\ %-l:%M)
