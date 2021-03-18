@@ -120,6 +120,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY,                       XK_q,      spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_backslash, spawn,       CUSTOM_SHCMD("select_song.sh") },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          CUSTOM_SHCMD("wifi.sh") },
 	{ MODKEY,                       XF86AudioNext, spawn,      CUSTOM_SHCMD("select_random_song.sh") },
 	{ MODKEY,                       XF86AudioLowerVolume, spawn, {.v = voldowncmd } },
 	{ MODKEY,                       XF86AudioRaiseVolume, spawn, {.v = volupcmd } },
