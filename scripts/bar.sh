@@ -1,11 +1,9 @@
 #!/bin/bash
 
-current="/home/noot/Music/music/current_song"
-
 make_bar() {
 	bar="[ $(/home/noot/git/dwm/scripts/date.sh) ]"
 
-	song=$(cat "$current")
+	song=$(cat /tmp/current_song)
 	[ -z "$song" ] || bar="[ ${song%.*} ] $bar"
 
 	timer=""
@@ -14,8 +12,6 @@ make_bar() {
 
 	echo $bar
 }
-
->$current
 
 make_bar
 

@@ -2,7 +2,7 @@
 
 play_song() {
 	[ "$@" = ".mp3" ] && return 1
-	echo $@ > "$MUSIC_DIR/current_song"
+	echo $@ > "/tmp/current_song"
 
 	killall ffplay > /dev/null 2>&1
 
