@@ -6,11 +6,7 @@ play_song() {
 
 	killall ffplay > /dev/null 2>&1
 
-	$(ffplay -nodisp -autoexit "$MUSIC_DIR/$@" > /dev/null 2>&1 && play_random_song) &
-}
-
-play_random_song() {
-	$(play_song "$($SCRIPT_DIR/random_song.sh)")
+	$(ffplay -nodisp -autoexit "$MUSIC_DIR/$@" > /dev/null 2>&1 && $($SCRIPT_DIR/next_song.sh))
 }
 
 play_song "$@"
