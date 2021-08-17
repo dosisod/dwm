@@ -8,4 +8,4 @@ sed -i '1d' "$QUEUE_FILE" > /dev/null
 [ "$song" = "" ] && song="$(${SCRIPT_DIR}/random_song.sh)"
 echo "$song"
 
-$("${SCRIPT_DIR}/song.sh" "$song") &
+"${SCRIPT_DIR}/song.sh" "$song" &
