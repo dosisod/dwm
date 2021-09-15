@@ -39,7 +39,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -87,6 +87,7 @@ static const char *timercmd[] = { SCRIPT_DIR "/timer.sh", NULL };
 #define XF86AudioMute 0x1008ff12
 #define XF86AudioLowerVolume 0x1008ff11
 #define XF86AudioRaiseVolume 0x1008ff13
+#define PrintScreen 0x0000ff61
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -126,13 +127,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_backslash, spawn,       CUSTOM_SHCMD("select_next.sh") },
 	{ MODKEY|ShiftMask,             XK_backslash, spawn,       CUSTOM_SHCMD("queue_next.sh") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          CUSTOM_SHCMD("wifi.sh") },
-	{ MODKEY,                       XF86AudioNext, spawn,      CUSTOM_SHCMD("next_song.sh") },
-	{ MODKEY,                       XF86AudioLowerVolume, spawn, {.v = voldowncmd } },
-	{ MODKEY,                       XF86AudioRaiseVolume, spawn, {.v = volupcmd } },
-	{ MODKEY,                       XF86AudioPlay, spawn,      CUSTOM_SHCMD("pause-song.sh") },
-	{ MODKEY,                       XF86AudioStop, spawn,      {.v = stopmusiccmd } },
-	{ MODKEY,                       XK_Scroll_Lock, spawn,     {.v = screenshotcmd } },
-	{ MODKEY|ShiftMask,             XK_Scroll_Lock, spawn,     {.v = screenshotareacmd } },
+	{ 0,                            XF86AudioNext, spawn,      CUSTOM_SHCMD("next_song.sh") },
+	{ 0,                            XF86AudioLowerVolume, spawn, {.v = voldowncmd } },
+	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = volupcmd } },
+	{ 0,                            XF86AudioPlay, spawn,      CUSTOM_SHCMD("pause-song.sh") },
+	{ 0,                            XF86AudioStop, spawn,      {.v = stopmusiccmd } },
+	{ 0,                            PrintScreen, spawn,        {.v = screenshotcmd } },
+	{ MODKEY,                       PrintScreen, spawn,        {.v = screenshotareacmd } },
 	{ MODKEY,                       XK_u,      spawn,          {.v = unicodecmd } },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = timercmd } }
 };
