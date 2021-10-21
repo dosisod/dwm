@@ -8,6 +8,7 @@ This is my custom build of `dwm`.
 * [gaps](http://dwm.suckless.org/patches/gaps/)
 * [bgra-glyphs](https://gitlab.freedesktop.org/mawww/libxft.git) patch for libXft
 * [alternativetags](https://dwm.suckless.org/patches/alternativetags)
+* [alpha](https://dwm.suckless.org/patches/alpha/)
 
 ## Building
 
