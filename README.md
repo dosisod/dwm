@@ -9,6 +9,7 @@ This is my custom build of `dwm`.
 * [bgra-glyphs](https://gitlab.freedesktop.org/mawww/libxft.git) patch for libXft
 * [alternativetags](https://dwm.suckless.org/patches/alternativetags)
 * [alpha](https://dwm.suckless.org/patches/alpha/)
+* [resizepoint](https://github.com/bakkeby/patches/blob/master/dwm/dwm-resizepoint-6.2.diff)
 
 ## Building
 
