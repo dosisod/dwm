@@ -21,4 +21,4 @@ while true; do
 done
 
 rm /tmp/timer
-dmenu -p "Times up!"
+echo "" | dmenu -p "Times up!"
