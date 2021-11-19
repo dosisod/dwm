@@ -89,6 +89,7 @@ static const char *screenshotcmd[] = { "gnome-screenshot", NULL };
 static const char *screenshotareacmd[] = { SCRIPT_DIR "/screenshot.sh", NULL };
 static const char *unicodecmd[] = { SCRIPT_DIR "/unicode.sh", NULL };
 static const char *timercmd[] = { SCRIPT_DIR "/timer.sh", NULL };
+static const char *backgroundcmd[] = { SCRIPT_DIR "/background.sh", NULL };
 
 #define XF86AudioPlay 0x1008ff14
 #define XF86AudioStop 0x1008ff15
@@ -142,12 +143,13 @@ static Key keys[] = {
 	{ 0,                            XF86AudioNext, spawn,      CUSTOM_SHCMD("next_song.sh") },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = voldowncmd } },
 	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = volupcmd } },
-	{ 0,                            XF86AudioPlay, spawn,      CUSTOM_SHCMD("pause-song.sh") },
+	{ 0,                            XF86AudioPlay, spawn,      CUSTOM_SHCMD("pause_song.sh") },
 	{ 0,                            XF86AudioStop, spawn,      {.v = stopmusiccmd } },
 	{ 0,                            PrintScreen, spawn,        {.v = screenshotcmd } },
 	{ MODKEY,                       PrintScreen, spawn,        {.v = screenshotareacmd } },
 	{ MODKEY,                       XK_u,      spawn,          {.v = unicodecmd } },
-	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = timercmd } }
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = timercmd } },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = backgroundcmd } },
 };
 
 /* button definitions */
