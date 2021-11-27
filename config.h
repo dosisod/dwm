@@ -71,7 +71,7 @@ static const Layout layouts[] = {
 
 /* file/directory location for scripts */
 #define SCRIPT_DIR "/home/noot/git/dwm/scripts"
-#define MUSIC_DIR "/home/noot/Music/music"
+#define MUSIC_DIR "/home/noot/Music"
 
 #define CUSTOM_SHCMD(cmd) { .v = (const char*[]){ \
 	"/bin/sh", "-c", "MUSIC_DIR=" MUSIC_DIR " SCRIPT_DIR=" SCRIPT_DIR " " SCRIPT_DIR "/" cmd, NULL \
@@ -82,7 +82,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *slockcmd[] = { "slock", NULL };
-static const char *stopmusiccmd[] = { "killall", "ffplay", NULL };
+static const char *stopmusiccmd[] = { SCRIPT_DIR "/kill_music.sh", NULL };
 static const char *volupcmd[] = { "amixer", "sset", "Master", "5%+", NULL };
 static const char *voldowncmd[] = { "amixer", "sset", "Master", "5%-", NULL };
 static const char *screenshotcmd[] = { "gnome-screenshot", NULL };
