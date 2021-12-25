@@ -1,1 +1,1 @@
-feh --no-fehbg --bg-fill --randomize /home/noot/Pictures/wallpapers
+feh --no-fehbg --bg-fill --randomize ~/Pictures/wallpapers

@@ -9,8 +9,7 @@ X11INC = /usr/include/X11
 X11LIB = /usr/lib/X11
 
 # freetype
-FREETYPELIBS = ./libxft/src/.libs/libXft.a ./freetype/objs/.libs/libfreetype.a \
-	-lpng -lz -lbz2 -lfontconfig -lXrender
+FREETYPELIBS = -lXft -lfreetype -lpng -lz -lbz2 -lfontconfig -lXrender
 FREETYPEINC = /usr/include/freetype2
 
 # includes and libs

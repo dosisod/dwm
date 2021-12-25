@@ -13,22 +13,12 @@ This is my custom build of `dwm`.
 
 ## Building
 
-Since this requires having a patched version of libXft, some initial setup is
-required. When first installing:
+On Arch Linux, install the [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/)
+and [freetype2](https://archlinux.org/packages/extra/x86_64/freetype2/)
+packages, then run `make && sudo make install`.
 
-```
-$ git clone --recurse-submodules https://github.com/dosisod/dwm
-$ cd dwm/libxft
-$ git checkout bgra-glyphs
-$ sh autogen.sh && ./configure && make
-$ cd ../freetype
-$ sh autogen.sh && ./configure && make
-$ cd ..
-```
-
-Tested on Ubuntu 18.04.
-
-
+For instructions for building on Ubuntu 18.04, click
+[here](https://github.com/dosisod/dwm/tree/ubuntu1804#building).
 
 Below is a copy of the original README.
 

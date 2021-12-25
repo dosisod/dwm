@@ -70,8 +70,8 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* file/directory location for scripts */
-#define SCRIPT_DIR "/home/noot/git/dwm/scripts"
-#define MUSIC_DIR "/home/noot/Music"
+#define SCRIPT_DIR "/home/loot/git/dwm/scripts"
+#define MUSIC_DIR "/home/loot/Music"
 
 #define CUSTOM_SHCMD(cmd) { .v = (const char*[]){ \
 	"/bin/sh", "-c", "MUSIC_DIR=" MUSIC_DIR " SCRIPT_DIR=" SCRIPT_DIR " " SCRIPT_DIR "/" cmd, NULL \
@@ -83,8 +83,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *stopmusiccmd[] = { SCRIPT_DIR "/kill_music.sh", NULL };
-static const char *volupcmd[] = { "amixer", "sset", "Master", "5%+", NULL };
-static const char *voldowncmd[] = { "amixer", "sset", "Master", "5%-", NULL };
+static const char *volupcmd[] = { "pamixer", "-i", "5", NULL };
+static const char *voldowncmd[] = { "pamixer", "-d", "5", NULL };
+static const char *mutecmd[] = { "pamixer", "-t", NULL };
 static const char *screenshotcmd[] = { "gnome-screenshot", NULL };
 static const char *screenshotareacmd[] = { SCRIPT_DIR "/screenshot.sh", NULL };
 static const char *unicodecmd[] = { SCRIPT_DIR "/unicode.sh", NULL };
@@ -143,6 +144,7 @@ static Key keys[] = {
 	{ 0,                            XF86AudioNext, spawn,      CUSTOM_SHCMD("next_song.sh") },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = voldowncmd } },
 	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = volupcmd } },
+	{ 0,                            XF86AudioMute, spawn, {.v = mutecmd } },
 	{ 0,                            XF86AudioPlay, spawn,      CUSTOM_SHCMD("pause_song.sh") },
 	{ 0,                            XF86AudioStop, spawn,      {.v = stopmusiccmd } },
 	{ 0,                            PrintScreen, spawn,        {.v = screenshotcmd } },
