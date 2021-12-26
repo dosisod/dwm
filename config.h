@@ -69,28 +69,15 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-/* file/directory location for scripts */
-#define SCRIPT_DIR "/home/loot/git/dwm/scripts"
-#define MUSIC_DIR "/home/loot/Music"
-
-#define CUSTOM_SHCMD(cmd) { .v = (const char*[]){ \
-	"/bin/sh", "-c", "MUSIC_DIR=" MUSIC_DIR " SCRIPT_DIR=" SCRIPT_DIR " " SCRIPT_DIR "/" cmd, NULL \
-} }
-
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *slockcmd[] = { "slock", NULL };
-static const char *stopmusiccmd[] = { SCRIPT_DIR "/kill_music.sh", NULL };
 static const char *volupcmd[] = { "pamixer", "-i", "5", NULL };
 static const char *voldowncmd[] = { "pamixer", "-d", "5", NULL };
 static const char *mutecmd[] = { "pamixer", "-t", NULL };
 static const char *screenshotcmd[] = { "gnome-screenshot", NULL };
-static const char *screenshotareacmd[] = { SCRIPT_DIR "/screenshot.sh", NULL };
-static const char *unicodecmd[] = { SCRIPT_DIR "/unicode.sh", NULL };
-static const char *timercmd[] = { SCRIPT_DIR "/timer.sh", NULL };
-static const char *backgroundcmd[] = { SCRIPT_DIR "/background.sh", NULL };
 
 #define XF86AudioPlay 0x1008ff14
 #define XF86AudioStop 0x1008ff15
@@ -138,20 +125,20 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY,                       XK_q,      spawn,          {.v = slockcmd } },
-	{ MODKEY,                       XK_backslash, spawn,       CUSTOM_SHCMD("select_next.sh") },
-	{ MODKEY|ShiftMask,             XK_backslash, spawn,       CUSTOM_SHCMD("queue_next.sh") },
-	{ MODKEY|ShiftMask,             XK_w,      spawn,          CUSTOM_SHCMD("wifi.sh") },
-	{ 0,                            XF86AudioNext, spawn,      CUSTOM_SHCMD("next_song.sh") },
+	{ MODKEY,                       XK_backslash, spawn,       SHCMD("$SCRIPT_DIR/select_next.sh") },
+	{ MODKEY|ShiftMask,             XK_backslash, spawn,       SHCMD("$SCRIPT_DIR/queue_next.sh") },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$SCRIPT_DIR/wifi.sh") },
+	{ 0,                            XF86AudioNext, spawn,      SHCMD("$SCRIPT_DIR/next_song.sh") },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = voldowncmd } },
 	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = volupcmd } },
 	{ 0,                            XF86AudioMute, spawn, {.v = mutecmd } },
-	{ 0,                            XF86AudioPlay, spawn,      CUSTOM_SHCMD("pause_song.sh") },
-	{ 0,                            XF86AudioStop, spawn,      {.v = stopmusiccmd } },
+	{ 0,                            XF86AudioPlay, spawn,      SHCMD("$SCRIPT_DIR/pause_song.sh") },
+	{ 0,                            XF86AudioStop, spawn,      SHCMD("$SCRIPT_DIR/kill_music.sh") },
 	{ 0,                            PrintScreen, spawn,        {.v = screenshotcmd } },
-	{ MODKEY,                       PrintScreen, spawn,        {.v = screenshotareacmd } },
-	{ MODKEY,                       XK_u,      spawn,          {.v = unicodecmd } },
-	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = timercmd } },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = backgroundcmd } },
+	{ MODKEY,                       PrintScreen, spawn,        SHCMD("$SCRIPT_DIR/screenshot.sh") },
+	{ MODKEY,                       XK_u,      spawn,          SHCMD("$SCRIPT_DIR/unicode.sh") },
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("$SCRIPT_DIR/timer.sh") },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("$SCRIPT_DIR/background.sh") }
 };
 
 /* button definitions */

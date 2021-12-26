@@ -9,15 +9,15 @@ minutes=$(echo -n "0" | dmenu -p "MINUTES")
 seconds=$(echo -n "0" | dmenu -p "SECONDS")
 [ -z "$seconds" ] && exit 1
 
-offset=$(echo "($hours * 3600) + ($minutes * 60) + $seconds" | bc)
+offset=$(expr "(" $hours '*' 3600 ")" + "(" $minutes '*' 60 ")" + $seconds)
 
 while true; do
 	echo "$(date -u --date="@$offset" +%T)" > /tmp/timer
-	offset=$(echo "$offset - 1" | bc)
+	offset=$(expr $offset - 1)
 
 	sleep 1
 
-	[ "$(echo "$offset < 0" | bc)" = "1" ] && break
+	expr $offset "<" 0 && break
 done
 
 rm /tmp/timer
