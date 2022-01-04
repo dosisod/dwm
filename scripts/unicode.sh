@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo -en "\u$(dmenu -p "U+" <<< '' )" | xclip -sel clipboard
+echo -en "\U$(dmenu -p "U+" <<< '' )" | xclip -sel clipboard

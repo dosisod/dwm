@@ -77,7 +77,7 @@ static const char *slockcmd[] = { "slock", NULL };
 static const char *volupcmd[] = { "pamixer", "-i", "5", NULL };
 static const char *voldowncmd[] = { "pamixer", "-d", "5", NULL };
 static const char *mutecmd[] = { "pamixer", "-t", NULL };
-static const char *screenshotcmd[] = { "gnome-screenshot", NULL };
+static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
 #define XF86AudioPlay 0x1008ff14
 #define XF86AudioStop 0x1008ff15
