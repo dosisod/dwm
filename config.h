@@ -127,6 +127,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_q,      spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_backslash, spawn,       SHCMD("$SCRIPT_DIR/select_next.sh") },
 	{ MODKEY|ShiftMask,             XK_backslash, spawn,       SHCMD("$SCRIPT_DIR/queue_next.sh") },
+	{ MODKEY|ShiftMask|ControlMask, XK_backslash, spawn,       SHCMD("$SCRIPT_DIR/playlist.sh") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$SCRIPT_DIR/wifi.sh") },
 	{ 0,                            XF86AudioNext, spawn,      SHCMD("$SCRIPT_DIR/next_song.sh") },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = voldowncmd } },
