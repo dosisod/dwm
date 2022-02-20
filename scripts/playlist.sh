@@ -11,7 +11,8 @@ playlist_select() {
 }
 
 playlist_stop() {
-	rm /tmp/current_playlist
+	rm -f /tmp/current_playlist
+	rm -f /tmp/repeat_song
 }
 
 playlist_play() {
@@ -88,8 +89,12 @@ playlist_delete() {
 	[ "$err" = "1" ] && msg "Playlist \"$playlist\" doesnt exist"
 }
 
+playlist_repeat() {
+	touch /tmp/repeat_song
+}
+
 main() {
-	action="$(printf "stop\nplay\nadd song(s)\nremove song(s)\nnew\ndelete" | dmenu -i -l -1 -p "playlist")"
+	action="$(printf "play\nstop\nadd song(s)\nremove song(s)\nnew\ndelete\nrepeat current" | dmenu -i -l -1 -p "playlist")"
 	[ -z "$action" ] && exit 0
 
 	case "$action" in
@@ -99,6 +104,7 @@ main() {
 		"remove song(s)") playlist_trim ;;
 		new) playlist_new ;;
 		delete) playlist_delete ;;
+		"repeat current") playlist_repeat ;;
 		*) msg "Invalid option" ; exit 1 ;;
 	esac
 }

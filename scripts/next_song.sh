@@ -10,4 +10,6 @@ playlist=$(cat /tmp/current_playlist 2> /dev/null)
 
 [ "$song" = "" ] && song="$(${SCRIPT_DIR}/random_song.sh)"
 
+[ -f /tmp/repeat_song ] && song="$(cat /tmp/current_song)"
+
 "${SCRIPT_DIR}/song.sh" "$song" &
