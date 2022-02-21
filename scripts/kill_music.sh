@@ -1,4 +1,4 @@
 #!/bin/sh
 
-killall ffplay
+killall -9 ffplay
 rm -f /tmp/current_song
