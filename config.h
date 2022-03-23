@@ -78,6 +78,7 @@ static const char *volupcmd[] = { "pamixer", "-i", "5", NULL };
 static const char *voldowncmd[] = { "pamixer", "-d", "5", NULL };
 static const char *mutecmd[] = { "pamixer", "-t", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
+static const char *passmenucmd[] = { "passmenu", NULL };
 
 #define XF86AudioPlay 0x1008ff14
 #define XF86AudioStop 0x1008ff15
@@ -139,7 +140,8 @@ static Key keys[] = {
 	{ MODKEY,                       PrintScreen, spawn,        SHCMD("$SCRIPT_DIR/screenshot.sh") },
 	{ MODKEY,                       XK_u,      spawn,          SHCMD("$SCRIPT_DIR/unicode.sh") },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("$SCRIPT_DIR/timer.sh") },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("$SCRIPT_DIR/background.sh") }
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("$SCRIPT_DIR/background.sh") },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passmenucmd } }
 };
 
 /* button definitions */
