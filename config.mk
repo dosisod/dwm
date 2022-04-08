@@ -1,5 +1,5 @@
 # dwm version
-VERSION = 6.2
+VERSION = 6.3
 
 # paths
 PREFIX = /usr/local
