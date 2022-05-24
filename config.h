@@ -142,6 +142,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_u,      spawn,          SHCMD("$SCRIPT_DIR/unicode.sh") },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("$SCRIPT_DIR/timer.sh") },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("$SCRIPT_DIR/background.sh") },
+	{ MODKEY|ControlMask|ShiftMask, XK_b,      spawn,          SHCMD("$SCRIPT_DIR/background_cli.sh") },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passmenucmd } }
 };
 
