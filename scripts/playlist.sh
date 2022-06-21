@@ -7,7 +7,7 @@ msg() {
 }
 
 playlist_select() {
-	echo "$(find "$MUSIC_DIR/playlist" -type f -printf '%f\n' | dmenu -l -1)"
+	echo "$(find "$MUSIC_DIR/playlist" -type f -printf '%f\n' | LC_ALL=C sort | dmenu -i -l 25)"
 }
 
 playlist_stop() {
