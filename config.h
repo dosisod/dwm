@@ -142,7 +142,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("timer.sh") },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("background.sh") },
 	{ MODKEY|ControlMask|ShiftMask, XK_b,      spawn,          SHCMD("background_cli.sh") },
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passmenucmd } }
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passmenucmd } },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("mount.sh") },
 };
 
 /* button definitions */
