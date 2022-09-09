@@ -5,7 +5,7 @@ This is my custom build of `dwm`.
 ## Patches
 
 * [noborder](http://dwm.suckless.org/patches/noborder/)
-* [gaps](http://dwm.suckless.org/patches/gaps/)
+* [fullgaps](https://dwm.suckless.org/patches/fullgaps/)
 * [bgra-glyphs](https://gitlab.freedesktop.org/mawww/libxft.git) patch for libXft
 * [alternativetags](https://dwm.suckless.org/patches/alternativetags)
 * [alpha](https://dwm.suckless.org/patches/alpha/)
