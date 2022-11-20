@@ -140,6 +140,7 @@ static Key keys[] = {
 	{ 0,                            PrintScreen, spawn,        {.v = screenshotcmd } },
 	{ MODKEY,                       XK_u,      spawn,          SHCMD("unicode.sh") },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("timer.sh") },
+	{ MODKEY|ControlMask|ShiftMask, XK_t,      spawn,          SHCMD("stopwatch.sh") },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("background.sh") },
 	{ MODKEY|ControlMask|ShiftMask, XK_b,      spawn,          SHCMD("background_cli.sh") },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passmenucmd } },
