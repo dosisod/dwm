@@ -80,6 +80,7 @@ static const char *voldowncmd[] = { "pamixer", "-d", "5", NULL };
 static const char *mutecmd[] = { "pamixer", "-t", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char *passmenucmd[] = { "passmenu", NULL };
+static const char *xkillcmd[] = { "xkill", NULL };
 
 #define XF86AudioPlay 0x1008ff14
 #define XF86AudioStop 0x1008ff15
@@ -148,7 +149,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY,                       XK_x,      spawn,          SHCMD("colorpicker.sh") },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("colorpicker.sh") },
+	{ MODKEY,                       XK_x,      spawn,          {.v = xkillcmd } },
 };
 
 /* button definitions */
