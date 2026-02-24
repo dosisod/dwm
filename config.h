@@ -73,14 +73,13 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "ghostty", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *volupcmd[] = { "pamixer", "-i", "5", NULL };
 static const char *voldowncmd[] = { "pamixer", "-d", "5", NULL };
 static const char *mutecmd[] = { "pamixer", "-t", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char *passmenucmd[] = { "passmenu", NULL };
-static const char *xkillcmd[] = { "xkill", NULL };
 
 #define XF86AudioPlay 0x1008ff14
 #define XF86AudioStop 0x1008ff15
@@ -95,7 +94,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask|ControlMask, XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("tabbed -c st -w $XEMBED") },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -132,6 +131,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_backslash, spawn,       SHCMD("queue_next.sh") },
 	{ MODKEY|ShiftMask|ControlMask, XK_backslash, spawn,       SHCMD("playlist.sh") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("wifi.sh") },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("bluetooth.sh") },
 	{ 0,                            XF86AudioNext, spawn,      SHCMD("next_song.sh") },
 	{ 0,                            XF86AudioLowerVolume, spawn, {.v = voldowncmd } },
 	{ 0,                            XF86AudioRaiseVolume, spawn, {.v = volupcmd } },
@@ -142,15 +142,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_u,      spawn,          SHCMD("unicode.sh") },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("timer.sh") },
 	{ MODKEY|ControlMask|ShiftMask, XK_t,      spawn,          SHCMD("stopwatch.sh") },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("background.sh") },
-	{ MODKEY|ControlMask|ShiftMask, XK_b,      spawn,          SHCMD("background_cli.sh") },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passmenucmd } },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("mount.sh") },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("colorpicker.sh") },
-	{ MODKEY,                       XK_x,      spawn,          {.v = xkillcmd } },
+	{ MODKEY,                       XK_x,      spawn,          SHCMD("colorpicker.sh") },
 };
 
 /* button definitions */
